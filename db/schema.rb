@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.text      "parameters"
     t.integer   "recipient_id"
     t.string    "recipient_type"
-    t.timestamp "created_at",     null: false
-    t.timestamp "updated_at",     null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.integer   "tenant_id"
   end
 
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.integer   "tenant_id"
     t.integer   "creator_id"
     t.integer   "updater_id"
-    t.timestamp "created_at",                 null: false
-    t.timestamp "updated_at",                 null: false
-    t.boolean   "delta",       default: true, null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.boolean   "delta",       default: true
   end
 
   add_index "answers", ["question_id"], name: "question_id", using: :btree
@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 20140917210613) do
   add_index "docs", ["doc_group_id"], name: "index_docs_on_doc_group_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
-    t.string    "slug",                      null: false
-    t.integer   "sluggable_id",              null: false
+    t.string    "slug"
+    t.integer   "sluggable_id"
     t.string    "sluggable_type", limit: 50
     t.string    "scope"
-    t.timestamp "created_at",                null: false
+    t.timestamp "created_at"
   end
 
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "slug", using: :btree
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.integer  "updater_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "delta",      default: true, null: false
+    t.boolean  "delta",      default: true
   end
 
   add_index "notes", ["path"], name: "index_notes_on_path", using: :btree
@@ -112,39 +112,39 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.integer   "tenant_id"
     t.integer   "creator_id"
     t.integer   "updater_id"
-    t.timestamp "created_at",                null: false
-    t.timestamp "updated_at",                null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.string    "slug"
-    t.boolean   "delta",      default: true, null: false
+    t.boolean   "delta",      default: true
   end
 
   add_index "questions", ["tenant_id"], name: "tenant_id", using: :btree
 
   create_table "sessions", force: true do |t|
-    t.string    "session_id", null: false
+    t.string    "session_id"
     t.text      "data"
-    t.timestamp "created_at", null: false
-    t.timestamp "updated_at", null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "sessions", ["session_id"], name: "session_id", using: :btree
   add_index "sessions", ["updated_at"], name: "updated_at", using: :btree
 
   create_table "settings", force: true do |t|
-    t.string    "var",         null: false
+    t.string    "var"
     t.text      "value"
-    t.integer   "target_id",   null: false
-    t.string    "target_type", null: false
-    t.timestamp "created_at",  null: false
-    t.timestamp "updated_at",  null: false
+    t.integer   "target_id"
+    t.string    "target_type"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "site_news", force: true do |t|
     t.integer   "tenant_id"
     t.string    "title"
     t.text      "text"
-    t.timestamp "created_at", null: false
-    t.timestamp "updated_at", null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.integer   "creator_id"
     t.integer   "updater_id"
   end
@@ -182,8 +182,8 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.integer   "tenant_id"
     t.integer   "creator_id"
     t.integer   "updater_id"
-    t.timestamp "created_at",  null: false
-    t.timestamp "updated_at",  null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   add_index "tags_original", ["name"], name: "name", using: :btree
@@ -193,8 +193,8 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.string    "name"
     t.string    "subdomain"
     t.string    "fqdn"
-    t.timestamp "created_at",                                null: false
-    t.timestamp "updated_at",                                null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.boolean   "new_user_restriction",      default: false
     t.string    "self_serve_allowed_domain"
     t.string    "safe_domains"
@@ -209,12 +209,12 @@ ActiveRecord::Schema.define(version: 20140917210613) do
 
   create_table "topic_files", force: true do |t|
     t.integer   "topic_id"
-    t.timestamp "created_at",         null: false
-    t.timestamp "updated_at",         null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.string    "asset_file_name"
     t.string    "asset_content_type"
     t.integer   "asset_file_size"
-    t.timestamp "asset_updated_at",   null: false
+    t.timestamp "asset_updated_at"
   end
 
   create_table "topics", force: true do |t|
@@ -225,14 +225,14 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.integer   "tenant_id"
     t.integer   "creator_id"
     t.integer   "updater_id"
-    t.timestamp "created_at",                       null: false
-    t.timestamp "updated_at",                       null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.string    "slug"
     t.string    "icon_file_name"
     t.string    "icon_content_type"
     t.integer   "icon_file_size"
-    t.timestamp "icon_updated_at",                  null: false
-    t.boolean   "delta",             default: true, null: false
+    t.timestamp "icon_updated_at"
+    t.boolean   "delta",             default: true
   end
 
   add_index "topics", ["tenant_id"], name: "tenant_id", using: :btree
@@ -255,19 +255,19 @@ ActiveRecord::Schema.define(version: 20140917210613) do
     t.string    "email",                  default: ""
     t.string    "encrypted_password",     default: ""
     t.string    "reset_password_token"
-    t.timestamp "reset_password_sent_at",                 null: false
-    t.timestamp "remember_created_at",                    null: false
-    t.integer   "sign_in_count",          default: 0,     null: false
-    t.timestamp "current_sign_in_at",                     null: false
-    t.timestamp "last_sign_in_at",                        null: false
+    t.timestamp "reset_password_sent_at"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",          default: 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
     t.string    "current_sign_in_ip"
     t.string    "last_sign_in_ip"
     t.string    "confirmation_token"
-    t.timestamp "confirmed_at",                           null: false
-    t.timestamp "confirmation_sent_at",                   null: false
+    t.timestamp "confirmed_at"
+    t.timestamp "confirmation_sent_at"
     t.string    "unconfirmed_email"
-    t.timestamp "created_at",                             null: false
-    t.timestamp "updated_at",                             null: false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.boolean   "approved",               default: false
     t.boolean   "active",                 default: true
     t.string    "hipchat_mention_name"
@@ -280,12 +280,12 @@ ActiveRecord::Schema.define(version: 20140917210613) do
   add_index "users", ["approved"], name: "approved", using: :btree
 
   create_table "versions", force: true do |t|
-    t.string    "item_type",  null: false
-    t.integer   "item_id",    null: false
-    t.string    "event",      null: false
+    t.string    "item_type"
+    t.integer   "item_id"
+    t.string    "event"
     t.string    "whodunnit"
     t.text      "object"
-    t.timestamp "created_at", null: false
+    t.timestamp "created_at"
   end
 
   add_index "versions", ["item_type", "item_id"], name: "item_type", using: :btree
